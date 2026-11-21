@@ -1,0 +1,22 @@
+# Copy to an operator-controlled file. Replace IDs and attest limits and
+# reasoning settings against your deployment before enabling inference.
+version: 1
+output_tokens: 2048
+strong_fallbacks: []
+model_aliases:
+  strong: {provider: openai, model: REPLACE_WITH_VERIFIED_STRONG_MODEL_ID, tier: strong, reasoning: [medium, high], context_tokens: 16384, max_output_tokens: 2048}
+  fast: {provider: openai, model: REPLACE_WITH_VERIFIED_FAST_MODEL_ID, tier: fast, reasoning: [medium], context_tokens: 8192, max_output_tokens: 2048}
+agents:
+  request_analyst: {tier: fast, reasoning: medium}
+  orchestrator: {tier: strong, reasoning: high}
+  platform_architect: {tier: strong, reasoning: high}
+  engineering_tech_lead: {tier: strong, reasoning: high}
+  senior_terraform: {tier: strong, reasoning: high}
+  junior_terraform: {tier: fast, reasoning: medium}
+  senior_aks: {tier: strong, reasoning: high}
+  junior_aks: {tier: fast, reasoning: medium}
+  security_triage: {tier: strong, reasoning: high}
+  vulnerability_remediation: {tier: strong, reasoning: high}
+  devops: {tier: strong, reasoning: medium}
+  validation: {tier: strong, reasoning: high}
+  sre: {tier: strong, reasoning: high}
